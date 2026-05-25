@@ -93,7 +93,7 @@
             </div>
             <div class="contact-info-text">
               <h4>Our Headquarters</h4>
-              <p>West Bay<br>Doha</p>
+              <p>West Bay, Tornado Tower<br>Floor 22, Doha</p>
             </div>
           </div>
 
@@ -104,7 +104,7 @@
             <div class="contact-info-text">
               <h4>Email Us</h4>
               <a href="mailto:info@doubleeight.qa">info@doubleeight.qa</a><br>
-              
+              <a href="mailto:careers@doubleeight.qa">careers@doubleeight.qa</a>
             </div>
           </div>
 
@@ -114,7 +114,7 @@
             </div>
             <div class="contact-info-text">
               <h4>Call Us</h4>
-              <a href="tel:+97444008888">+974 33351277</a><br>
+              <a href="tel:+97444008888">+974 4400 8888</a><br>
               <p style="font-size: 0.8rem; margin-top: 0.2rem;">Sun - Thu, 8:00 AM - 5:00 PM</p>
             </div>
           </div>
@@ -183,6 +183,16 @@
     </div>
   </section>
 
+  <!-- Map Placeholder -->
+  <section class="map-section entry-3d">
+    <div class="map-placeholder">
+      <div class="map-pin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <h4>Visit Our Office</h4>
+      <p>Tornado Tower, West Bay, Doha</p>
+    </div>
+  </section>
 
   <!-- Footer -->
     <footer class="footer">
@@ -264,8 +274,6 @@
 
   <script>
   (function() {
-    // Keys stored securely in Vercel environment variables
-
     const form       = document.getElementById('contact-form');
     const successMsg = document.querySelector('.alert-success');
     const errorMsg   = document.querySelector('.alert-error');
@@ -312,18 +320,6 @@ ${message}`;
           });
           if (res.ok) data = await res.json();
         } catch(_) {}
-
-        // Direct Telegram fallback (for cPanel hosting)
-        if (!data.success) {
-          const text = `🔔 *New Contact — Double Eight*\n\n👤 *Name:* ${name}\n📧 *Email:* ${email}\n📞 *Phone:* ${phone || 'Not provided'}\n🛠 *Service:* ${service}\n\n💬 *Message:*\n${message}`;
-          const tRes = await fetch('https://api.telegram.org/bot8604801121:AAE513-b0WsrOMW_miU2ncDitpPxSWG93KI/sendMessage', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ chat_id: '6373238051', text, parse_mode: 'Markdown' })
-          });
-          const tData = await tRes.json();
-          if (tData.ok) data = { success: true };
-        }
 
         if (data.success) {
           form.reset();
