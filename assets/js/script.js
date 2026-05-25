@@ -311,15 +311,12 @@
   const form         = document.getElementById('contact-form');
   if (!form) return;
 
-  const successAlert = document.querySelector('.alert-success');
-  const errorAlert   = document.querySelector('.alert-error');
-  const submitBtn    = form.querySelector('[type="submit"]');
+  const submitBtn = form.querySelector('[type="submit"]');
 
-  function showAlert(el, message) {
+  function showAlert(el) {
     if (!el) return;
-    el.querySelector('span').textContent = message;
-    el.classList.add('show');
-    setTimeout(() => el.classList.remove('show'), 6000);
+    el.style.cssText = el.style.cssText.replace('display:none!important', 'display:block!important');
+    setTimeout(() => { el.style.cssText = el.style.cssText.replace('display:block!important', 'display:none!important'); }, 5000);
   }
 
   form.addEventListener('submit', async (e) => {
@@ -332,7 +329,7 @@
     const message = (document.getElementById('message')?.value || '').trim();
 
     if (!name || !email || !service || !message) {
-      showAlert(errorAlert, 'Please fill in all required fields.');
+      showAlert(document.getElementById('toast-err'));
       return;
     }
 
@@ -350,12 +347,12 @@
 
       if (data.success) {
         form.reset();
-        showAlert(successAlert, 'Your message has been sent successfully!');
+        showAlert(document.getElementById('toast-ok'));
       } else {
-        showAlert(errorAlert, 'Something went wrong. Please try again.');
+        showAlert(document.getElementById('toast-err'));
       }
     } catch (err) {
-      showAlert(errorAlert, 'Network error. Please check your connection.');
+      showAlert(document.getElementById('toast-err'));
     }
 
     submitBtn.innerHTML = originalHTML;
