@@ -174,7 +174,16 @@
     </div>
   </section>
 
- 
+  <!-- Map Placeholder -->
+  <section class="map-section entry-3d">
+    <div class="map-placeholder">
+      <div class="map-pin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      </div>
+      <h4>Visit Our Office</h4>
+      <p>Tornado Tower, West Bay, Doha</p>
+    </div>
+  </section>
 
   <!-- Footer -->
     <footer class="footer">
@@ -255,11 +264,32 @@
   <script src="assets/js/ai-chat.js"></script>
 
   <!-- Toast Notifications -->
-  <div class="alert alert-success" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:999999;min-width:300px;max-width:90vw;box-shadow:0 8px 32px rgba(0,0,0,0.4);">
+  <style>
+    .toast-msg {
+      display: none;
+      position: fixed;
+      bottom: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 999999;
+      min-width: 280px;
+      max-width: 90vw;
+      padding: 1rem 1.4rem;
+      border-radius: 10px;
+      font-size: 0.9rem;
+      align-items: center;
+      gap: 0.8rem;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+    }
+    .toast-msg.show { display: flex; }
+    .toast-success { background: rgba(39,174,96,0.95); color: #fff; border: 1px solid rgba(39,174,96,1); }
+    .toast-error   { background: rgba(231,76,60,0.95);  color: #fff; border: 1px solid rgba(231,76,60,1); }
+  </style>
+  <div class="toast-msg toast-success alert-success">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
     <span>Your message has been sent successfully!</span>
   </div>
-  <div class="alert alert-error" style="position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);z-index:999999;min-width:300px;max-width:90vw;box-shadow:0 8px 32px rgba(0,0,0,0.4);">
+  <div class="toast-msg toast-error alert-error">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
     <span>Something went wrong. Please try again.</span>
   </div>
