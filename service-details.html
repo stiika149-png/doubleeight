@@ -3,32 +3,335 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <title>Service Details | Double Eight Business Solutions</title>
-  <meta name="description" content="Detailed overview of our business solutions and services.">
+  <title>Portfolio | Double Eight Business Solutions</title>
+  <meta name="description" content="Selected work by Double Eight — branding, digital design, web, and social media.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Poppins:wght@300;400;500;600;700&display=swap"></noscript>
   <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    /* ═══════════════════════════════════════════
+       PORTFOLIO PAGE — FULL REBUILD
+    ═══════════════════════════════════════════ */
+
+    /* Hero */
+    .pf-hero {
+      padding: 10rem 0 4rem;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+    .pf-hero::before {
+      content:'';position:absolute;top:-30%;left:50%;transform:translateX(-50%);
+      width:700px;height:700px;
+      background:radial-gradient(circle,rgba(212,175,55,.07) 0%,transparent 70%);
+      pointer-events:none;
+    }
+    .pf-hero-inner { max-width:var(--max-width);margin:0 auto;padding:0 2rem; }
+    .pf-label {
+      font-size:.62rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);
+      display:flex;align-items:center;gap:.8rem;margin-bottom:1.2rem;
+    }
+    .pf-label::before {content:'';width:36px;height:1px;background:var(--gold);}
+    .pf-hero-title {
+      font-family:var(--font-head);font-size:clamp(2.6rem,5.5vw,5rem);
+      font-weight:900;line-height:1.05;color:var(--white);margin-bottom:1.4rem;
+    }
+    .pf-hero-title em {font-style:italic;color:var(--gold);}
+    .pf-hero-sub {font-size:.95rem;color:var(--grey-light);max-width:500px;line-height:1.75;}
+
+    /* Filter */
+    .pf-filters {
+      display:flex;gap:.5rem;flex-wrap:wrap;
+      max-width:var(--max-width);margin:2.5rem auto 0;padding:0 2rem;
+    }
+    .pf-btn {
+      padding:.5rem 1.3rem;border-radius:99px;
+      border:1px solid rgba(255,255,255,.1);background:transparent;
+      color:var(--grey-light);font-size:.7rem;letter-spacing:.1em;
+      text-transform:uppercase;cursor:pointer;transition:all .25s;
+    }
+    .pf-btn.on,.pf-btn:hover {
+      border-color:var(--gold);color:var(--gold);background:rgba(212,175,55,.08);
+    }
+
+    /* ── Grid of cards ── */
+    .pf-grid {
+      max-width:var(--max-width);margin:4rem auto 0;padding:0 2rem;
+      display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;
+    }
+
+    .pf-card {
+      background:var(--black-mid);border-radius:12px;overflow:hidden;
+      cursor:pointer;position:relative;
+      border:1px solid rgba(255,255,255,.06);
+      transition:border-color .3s,transform .35s var(--ease-out);
+    }
+    .pf-card:hover {border-color:rgba(212,175,55,.35);transform:translateY(-4px);}
+
+    .pf-card-img {
+      width:100%;aspect-ratio:16/10;overflow:hidden;position:relative;
+      background:#111;
+    }
+    .pf-card-img img {
+      width:100%;height:100%;object-fit:cover;object-position:top;
+      transition:transform .6s var(--ease-out);display:block;
+    }
+    .pf-card:hover .pf-card-img img {transform:scale(1.04);}
+
+    .pf-card-body {padding:1.2rem 1.3rem 1.4rem;}
+    .pf-card-tag {
+      font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;
+      color:var(--gold);margin-bottom:.5rem;
+    }
+    .pf-card-title {
+      font-family:var(--font-head);font-size:1.05rem;font-weight:600;
+      color:var(--white);margin-bottom:.5rem;line-height:1.25;
+    }
+    .pf-card-desc {
+      font-size:.78rem;color:var(--grey-light);line-height:1.6;
+      display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+    }
+    .pf-card-foot {
+      display:flex;align-items:center;justify-content:space-between;
+      margin-top:1rem;padding-top:.9rem;
+      border-top:1px solid rgba(255,255,255,.06);
+    }
+    .pf-card-chips {display:flex;gap:.4rem;flex-wrap:wrap;}
+    .pf-chip {
+      font-size:.55rem;padding:.25rem .6rem;border-radius:99px;
+      border:1px solid rgba(255,255,255,.12);color:var(--grey-light);
+      letter-spacing:.08em;text-transform:uppercase;
+    }
+    .pf-open-btn {
+      width:32px;height:32px;border-radius:50%;
+      background:rgba(212,175,55,.12);border:1px solid rgba(212,175,55,.3);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--gold);transition:all .25s;flex-shrink:0;
+    }
+    .pf-card:hover .pf-open-btn {background:var(--gold);color:#000;}
+
+    /* ── Lightbox / case study panel ── */
+    
+
+    
+    
+    
+
+    
+    
+    
+    
+
+    
+
+    /* Panel header */
+    .pp-num {font-size:.6rem;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:.6rem;}
+    .pp-title {
+      font-family:var(--font-head);font-size:clamp(1.8rem,4vw,2.8rem);
+      font-weight:700;color:var(--white);line-height:1.1;margin-bottom:1rem;
+    }
+    .pp-title em {font-style:italic;color:var(--gold);}
+    .pp-desc {font-size:.92rem;color:var(--grey-light);line-height:1.8;max-width:640px;margin-bottom:1.6rem;}
+    .pp-meta {
+      display:flex;gap:2.5rem;flex-wrap:wrap;
+      padding:1.2rem 0;
+      border-top:1px solid rgba(255,255,255,.07);
+      border-bottom:1px solid rgba(255,255,255,.07);
+      margin-bottom:2rem;
+    }
+    .pp-meta-item {display:flex;flex-direction:column;gap:.2rem;}
+    .pp-meta-label {font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);}
+    .pp-meta-val {font-size:.82rem;color:var(--white);font-weight:500;}
+
+    /* Panel image sections */
+    .pp-section {margin-bottom:2rem;}
+    .pp-section-label {
+      font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);
+      display:flex;align-items:center;gap:.6rem;margin-bottom:.9rem;
+    }
+    .pp-section-label::before {content:'';width:20px;height:1px;background:var(--gold);}
+    .pp-img {border-radius:8px;overflow:hidden;background:#111;margin-bottom:.8rem;width:100%;}
+    .pp-img img {width:100%;height:auto;display:block;}
+    .pp-2col {display:grid;grid-template-columns:1fr 1fr;gap:.8rem;}
+    .pp-browser {
+      background:#1a1a1a;border-radius:10px;overflow:hidden;
+      border:1px solid rgba(255,255,255,.07);margin-bottom:.8rem;
+    }
+    .pp-browser-bar {
+      background:#242424;padding:9px 12px;display:flex;align-items:center;gap:5px;
+    }
+    .pp-dot {width:9px;height:9px;border-radius:50%;}
+    .pp-url {
+      margin-left:8px;background:#111;border-radius:3px;padding:2px 10px;
+      font-size:10px;color:var(--grey);flex:1;max-width:300px;
+    }
+    .pp-browser-screen {overflow:hidden;}
+    .pp-browser-screen img {width:100%;display:block;}
+
+    /* Scroll reveal */
+    .pf-card {opacity:0;transform:translateY(28px);transition:opacity .6s,transform .6s;}
+    .pf-card.vis {opacity:1;transform:translateY(0);}
+    .pf-card:nth-child(2) {transition-delay:.08s;}
+    .pf-card:nth-child(3) {transition-delay:.16s;}
+    .pf-card:nth-child(4) {transition-delay:.04s;}
+    .pf-card:nth-child(5) {transition-delay:.12s;}
+    .pf-card:nth-child(6) {transition-delay:.20s;}
+    .pf-card:nth-child(7) {transition-delay:.08s;}
+    .pf-card:nth-child(8) {transition-delay:.16s;}
+
+    /* CTA */
+    .pf-cta {
+      text-align:center;padding:6rem 2rem;background:var(--black-soft);margin-top:5rem;
+    }
+    .pf-cta h2 {
+      font-family:var(--font-head);font-size:clamp(1.8rem,4vw,3rem);
+      font-weight:700;margin-bottom:1rem;
+    }
+    .pf-cta p {color:var(--grey-light);max-width:460px;margin:0 auto 2.2rem;font-size:.95rem;}
+
+    /* Responsive */
+    @media(max-width:1100px) {.pf-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:640px) {
+      .pf-grid{grid-template-columns:1fr;}
+      .pf-panel{width:100vw;}
+      .pp-2col{grid-template-columns:1fr;}
+    }
+
+    /* WhatsApp */
+    .wa-bubble{position:fixed;bottom:2rem;left:2rem;z-index:9999;display:flex;align-items:center;gap:.6rem;}
+    .wa-btn{position:relative;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 20px rgba(37,211,102,.45);animation:waPulse 2.5s ease-in-out infinite;transition:transform .3s,box-shadow .3s;text-decoration:none;flex-shrink:0;}
+    .wa-btn:hover{transform:scale(1.12);box-shadow:0 8px 32px rgba(37,211,102,.6);animation:none;}
+    .wa-btn svg{width:28px;height:28px;fill:#fff;position:relative;z-index:2;}
+    @keyframes waPulse{0%,100%{transform:scale(1);box-shadow:0 4px 20px rgba(37,211,102,.45);}50%{transform:scale(1.07);box-shadow:0 6px 30px rgba(37,211,102,.65);}}
+    .wa-ring{position:absolute;inset:0;border-radius:50%;background:rgba(37,211,102,.25);animation:waRing 2.5s ease-out infinite;}
+    .wa-ring:nth-child(2){animation-delay:.8s;}.wa-ring:nth-child(3){animation-delay:1.6s;}
+    @keyframes waRing{0%{transform:scale(1);opacity:.6;}100%{transform:scale(2.4);opacity:0;}}
+    .wa-label{background:rgba(10,10,10,.88);backdrop-filter:blur(8px);color:#fff;font-size:.72rem;padding:.4rem .9rem;border-radius:99px;white-space:nowrap;opacity:0;transform:translateX(-8px);transition:all .3s;pointer-events:none;}
+    .wa-bubble:hover .wa-label{opacity:1;transform:translateX(0);}
+  
+    /* ═══ PANEL — clean scroll architecture ═══ */
+    .pf-panel-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.82);
+      z-index: 200000;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .35s;
+    }
+    .pf-panel-overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* Panel shell — clips content, does NOT scroll */
+    .pf-panel {
+      position: fixed;
+      top: 0; right: 0; bottom: 0;
+      width: min(860px, 95vw);
+      background: #0e0e0e;
+      z-index: 200001;
+      overflow: hidden;
+      transform: translateX(100%);
+      transition: transform .42s cubic-bezier(.4,0,.2,1);
+      border-left: 1px solid rgba(255,255,255,.08);
+    }
+    .pf-panel.open {
+      transform: translateX(0);
+    }
+
+    /* Close bar — flex child, always visible at top */
+    .pf-panel-close {
+      position: relative;
+      flex-shrink: 0;
+      height: 60px;
+      z-index: 200010;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.8rem;
+      background: rgba(14,14,14,.97);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+    }
+    .pf-panel-close-label {
+      font-size: .62rem;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.4);
+    }
+    .pf-close-btn {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(212,175,55,.15);
+      border: 1px solid rgba(212,175,55,.4);
+      color: #fff;
+      font-size: 1.3rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background .2s;
+      z-index: 100; position: relative;
+      flex-shrink: 0;
+    }
+    .pf-close-btn:hover { background: rgba(212,175,55,.35); }
+
+    /* Scroll wrapper — sits below the 60px close bar, fills the rest */
+    .pf-panel-scroll {
+      position: absolute;
+      top: 60px; left: 0; right: 0; bottom: 0;
+      overflow-y: scroll !important;
+      overflow-x: hidden;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      /* Ensure this element itself can always scroll */
+      touch-action: pan-y;
+      will-change: scroll-position;
+    }
+
+    /* Content inside scroll wrapper */
+    .pf-panel-content {
+      padding: 2.2rem 2rem 5rem;
+      min-height: 101%;
+    }
+    /* Cursor elements must NEVER intercept pointer events */
+    .cursor-dot, .cursor-ring {
+      pointer-events: none !important;
+    }
+    /* Hide custom cursor inside panel scroll area */
+    .panel-open .cursor-dot,
+    .panel-open .cursor-ring {
+      opacity: 0 !important;
+    }
+    /* When body is locked (position:fixed), panel scroll must still work */
+    .panel-open .pf-panel {
+      overflow: hidden;
+    }
+
+    .ripple-effect {
+      pointer-events: none !important;
+    }
+
+  </style>
   <script>setTimeout(function(){var l=document.getElementById("page-loader");if(l)l.classList.add("hide");},3000);</script>
 </head>
 <body>
 
-  <!-- 3D Page Loader -->
   <div id="page-loader">
     <div class="loader-logo"><img src="assets/images/logo.png" alt="Double Eight" class="nav-logo-img"></div>
     <div class="loader-bar-wrap"><div class="loader-bar"></div></div>
     <div class="loader-text">Loading Experience</div>
   </div>
-
-  <!-- Scroll Progress -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
   <div id="scroll-progress"></div>
 
-  <!-- Navbar -->
   <nav id="navbar">
     <div class="container nav-inner">
       <a href="index.html" class="nav-logo">
-        <img src="assets/images/logo.png" alt="Double Eight" class="nav-logo-img">
+        <img src="assets/images/logo.png" alt="Logo" class="nav-logo-img">
         <div class="nav-logo-text">
           <span class="nav-logo-name">Double Eight</span>
           <span class="nav-logo-tagline">Business Solutions</span>
@@ -37,8 +340,8 @@
       <div class="nav-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="services.html" class="active">Services</a>
-        <a href="portfolio.html">Portfolio</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html" class="active">Portfolio</a>
       </div>
       <div class="nav-cta">
         <a href="contact.html" class="btn btn-outline-gold">Let's Talk</a>
@@ -48,10 +351,8 @@
       </button>
     </div>
   </nav>
-
-    <!-- Mobile Nav -->
   <div class="nav-mobile">
-    <button class="nav-mobile-close" aria-label="Close">&#x2715;</button>
+    <button class="nav-mobile-close" aria-label="Close">×</button>
     <div style="margin-bottom:2rem;padding-bottom:1.5rem;border-bottom:1px solid rgba(212,175,55,0.2);width:100%;">
       <div style="color:#d4af37;font-size:1rem;font-weight:700;letter-spacing:0.1em;">DOUBLE EIGHT</div>
       <div style="color:rgba(255,255,255,0.4);font-size:0.7rem;letter-spacing:0.15em;">BUSINESS SOLUTIONS</div>
@@ -60,23 +361,184 @@
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="portfolio.html">Portfolio</a>
-    <a href="contact.html" style="color:#d4af37;border-bottom:none;margin-top:1rem;">Contact Us &#x2192;</a>
+    <a href="contact.html" style="color:#d4af37;border-bottom:none;margin-top:1rem;">Contact Us →</a>
   </div>
 
-  <!-- Dynamic Content Container -->
-  <div id="service-dynamic-content">
-    <!-- Content injected via script.js based on URL parameter -->
-    <div class="page-hero">
-      <div class="container">
-        <div class="page-hero-content">
-          <h1 class="page-hero-title">Loading Service...</h1>
+  <!-- Hero -->
+  <header class="pf-hero">
+    <div class="pf-hero-inner">
+      <div class="pf-label">Selected Work</div>
+      <h1 class="pf-hero-title">Ideas realized<br>in <em>excellence</em>.</h1>
+      <p class="pf-hero-sub">A curated selection of brand identities, digital experiences, and campaigns built for businesses that refuse to blend in.</p>
+    </div>
+    <div class="pf-filters">
+      <button class="pf-btn on" data-f="all">All Work</button>
+      <button class="pf-btn" data-f="web">Web Design</button>
+      <button class="pf-btn" data-f="branding">Branding</button>
+      <button class="pf-btn" data-f="social">Social Media</button>
+    </div>
+  </header>
+
+  <!-- Card Grid -->
+  <section style="padding-bottom:2rem;">
+    <div class="pf-grid" id="pf-grid">
+
+      <!-- 01 iNova Healthcare -->
+      <div class="pf-card" data-cat="web" data-id="nova">
+        <div class="pf-card-img">
+          <img src="assets/images/1.jpg" alt="">
+          </div>
+        <div class="pf-card-body">
+          <div class="pf-card-tag">Web Design · Healthcare</div>
+          <h3 class="pf-card-title">iNova Healthcare</h3>
+          <p class="pf-card-desc">Cinematic website with live appointment widget and WhatsApp booking integration.</p>
+          <div class="pf-card-foot">
+            <div class="pf-card-chips">
+              <span class="pf-chip">UI/UX</span><span class="pf-chip">Web</span>
+            </div>
+            <div class="pf-open-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
 
-  <!-- Footer -->
-    <footer class="footer">
+      <!-- 02 UniSpace -->
+      <div class="pf-card" data-cat="web" data-id="uni">
+        <div class="pf-card-img">
+          <img src="assets/images/2.jpg" alt="">
+          </div>
+        <div class="pf-card-body">
+          <div class="pf-card-tag">Web Design · SaaS</div>
+          <h3 class="pf-card-title">UniSpace Platform</h3>
+          <p class="pf-card-desc">Smart library space management — real-time occupancy, interactive map, admin dashboard.</p>
+          <div class="pf-card-foot">
+            <div class="pf-card-chips">
+              <span class="pf-chip">UI/UX</span><span class="pf-chip">Platform</span>
+            </div>
+            <div class="pf-open-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 The Torch -->
+      <div class="pf-card" data-cat="web" data-id="torch">
+        <div class="pf-card-img">
+          <img src="assets/images/3.jpg" alt="">
+         </div>
+        <div class="pf-card-body">
+          <div class="pf-card-tag">Web Design · Hospitality</div>
+          <h3 class="pf-card-title">The Torch — Luxury Hotel</h3>
+          <p class="pf-card-desc">Immersive hospitality website with cinematic hero, suite gallery, and premium booking flow.</p>
+          <div class="pf-card-foot">
+            <div class="pf-card-chips">
+              <span class="pf-chip">UI/UX</span><span class="pf-chip">Luxury</span>
+            </div>
+            <div class="pf-open-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 La Roche-Posay -->
+      <div class="pf-card" data-cat="web" data-id="lrp">
+        <div class="pf-card-img">
+          <img src="assets/images/4.jpg" alt="">
+          </div>
+        <div class="pf-card-body">
+          <div class="pf-card-tag">Web Design · Beauty</div>
+          <h3 class="pf-card-title">La Roche-Posay</h3>
+          <p class="pf-card-desc">Dermatologist-grade skincare e-commerce — clean product grid, featured serums, testimonials and FAQ.</p>
+          <div class="pf-card-foot">
+            <div class="pf-card-chips">
+              <span class="pf-chip">E-Commerce</span><span class="pf-chip">UI/UX</span>
+            </div>
+            <div class="pf-open-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 05 eXtra Store -->
+      <div class="pf-card" data-cat="web" data-id="extra">
+        <div class="pf-card-img">
+          <img src="assets/images/5.jpg" alt="">
+           </div>
+        <div class="pf-card-body">
+          <div class="pf-card-tag">Web Design · E-Commerce</div>
+          <h3 class="pf-card-title">eXtra Store</h3>
+          <p class="pf-card-desc">Premium electronics marketplace with flash sale timer, category grid, featured products, and loyalty sections.</p>
+          <div class="pf-card-foot">
+            <div class="pf-card-chips">
+              <span class="pf-chip">E-Commerce</span><span class="pf-chip">Retail</span>
+            </div>
+            <div class="pf-open-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 06 Paris Swimming Club -->
+      <div class="pf-card" data-cat="branding" data-id="paris">
+        <div class="pf-card-img">
+          <img src="assets/images/6.jpg" alt="">
+         </div>
+        <div class="pf-card-body">
+          <div class="pf-card-tag">Branding · Sports</div>
+          <h3 class="pf-card-title">Paris Swimming Club</h3>
+          <p class="pf-card-desc">Elegant brand identity — logos, palette, typography, patterns, swim cap and member card mockups.</p>
+          <div class="pf-card-foot">
+            <div class="pf-card-chips">
+              <span class="pf-chip">Identity</span><span class="pf-chip">Print</span>
+            </div>
+            <div class="pf-open-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 07 Thai Kitchen -->
+      <div class="pf-card" data-cat="branding" data-id="thai">
+        <div class="pf-card-img">
+          <img src="assets/images/thai.jpg" alt="">
+           </div>
+        <div class="pf-card-body">
+          <div class="pf-card-tag">Branding · Restaurant</div>
+          <h3 class="pf-card-title">Thai Kitchen</h3>
+          <p class="pf-card-desc">End-to-end restaurant brand — identity, tri-fold menu, 6 Instagram templates, food delivery app UI.</p>
+          <div class="pf-card-foot">
+            <div class="pf-card-chips">
+              <span class="pf-chip">Branding</span><span class="pf-chip">Social</span>
+            </div>
+            <div class="pf-open-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </div>
+<!-- 08 indusource -->
+      <div class="pf-card" data-cat="branding" data-id="de">
+        <div class="pf-card-img">
+          <img src="assets/images/8.jpg" alt="">
+          </div>
+        <div class="pf-card-body">
+          <div class="pf-card-tag">Branding · Industry</div>
+          <h3 class="pf-card-title">Indusource</h3>
+          <p class="pf-card-desc">Full Brand Identity  -  Industrial Procurement  -  Logo · Social · Guidelines.</p>
+          <div class="pf-card-foot">
+            <div class="pf-card-chips">
+              <span class="pf-chip">Industry</span><span class="pf-chip">identity</span>
+            </div>
+            <div class="pf-open-btn"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="pf-cta">
+    <div class="container">
+      <h2>Ready to be our next <em style="font-style:italic;color:var(--gold)">success story</em>?</h2>
+      <p>Let's build something extraordinary together. Tell us about your project.</p>
+      <a href="contact.html" class="btn btn-primary">Start a Project</a>
+    </div>
+  </section>
+
+  <footer class="footer">
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
@@ -87,7 +549,7 @@
               <span class="nav-logo-tagline">Business Solutions</span>
             </div>
           </a>
-          <p>A premier business solutions agency — engineering growth through SEO, branding, and digital innovation.</p>
+          <p>kindly be sure you have enough credit before you click , Our Ceo doesn't use whatsapp for personal reason.</p>
           <div class="footer-social">
             <a href="#" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
             <a href="#" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/></svg></a>
@@ -134,6 +596,20 @@
     </div>
   </footer>
 
+  <!-- Panel Overlay -->
+  <div class="pf-panel-overlay" id="pf-overlay"></div>
+
+  <!-- Case Study Panel -->
+  <div class="pf-panel" id="pf-panel">
+    <div class="pf-panel-close">
+      <span class="pf-panel-close-label">Case Study</span>
+      <button class="pf-close-btn" id="pf-close">&#x2715;</button>
+    </div>
+    <div class="pf-panel-scroll" id="pf-panel-scroll">
+      <div class="pf-panel-content" id="pf-panel-content"></div>
+    </div>
+  </div>
+
   <!-- Back to Top -->
   <button id="back-to-top" aria-label="Back to top">
     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
@@ -142,15 +618,298 @@
   <!-- WhatsApp Bubble -->
   <div class="wa-bubble">
     <a class="wa-btn" href="YOUR_WHATSAPP_LINK_HERE" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
-      <div class="wa-ring"></div>
-      <div class="wa-ring"></div>
-      <div class="wa-ring"></div>
+      <div class="wa-ring"></div><div class="wa-ring"></div><div class="wa-ring"></div>
       <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><path d="M16 .5C7.44.5.5 7.44.5 16c0 2.72.7 5.3 2.03 7.6L.5 31.5l8.1-2.03A15.45 15.45 0 0 0 16 31.5C24.56 31.5 31.5 24.56 31.5 16S24.56.5 16 .5zm0 28.3a13.75 13.75 0 0 1-7-1.9l-.5-.3-5.3 1.33 1.35-5.15-.32-.52A13.78 13.78 0 1 1 16 28.8zm7.56-10.3c-.4-.2-2.4-1.18-2.77-1.32-.37-.13-.64-.2-.9.2-.28.4-1.07 1.32-1.3 1.6-.24.27-.47.3-.88.1-.4-.2-1.7-.63-3.24-2-1.2-1.07-2-2.38-2.24-2.78-.23-.4-.02-.62.17-.82.18-.18.4-.47.6-.7.2-.24.27-.4.4-.67.14-.27.07-.5-.04-.7-.1-.2-.9-2.16-1.23-2.96-.32-.78-.65-.67-.9-.68h-.77c-.27 0-.7.1-1.07.5-.37.4-1.4 1.37-1.4 3.33 0 1.97 1.43 3.87 1.63 4.14.2.27 2.8 4.27 6.78 5.99.95.41 1.69.65 2.26.83.95.3 1.82.26 2.5.16.77-.12 2.4-.98 2.74-1.93.34-.95.34-1.76.24-1.93-.1-.17-.37-.27-.77-.47z"/></svg>
     </a>
     <span class="wa-label">Chat with us</span>
   </div>
 
+  <div id="cookie-banner" class="cookie-banner">
+    <p>We use cookies to enhance your experience. By continuing to browse, you agree to our <a href="#">Cookie Policy</a>.</p>
+    <div class="cookie-actions">
+      <button id="cookie-reject" class="btn btn-outline" style="padding:0.5rem 1.2rem;font-size:0.7rem;">Decline</button>
+      <button id="cookie-accept" class="btn btn-primary" style="padding:0.5rem 1.2rem;font-size:0.7rem;">Accept All</button>
+    </div>
+  </div><!-- /cookie-banner -->
+
   <script src="assets/js/script.js"></script>
   <script src="assets/js/ai-chat.js"></script>
+  <script>
+  // ── Case study data ───────────────────────────────────────────────────────
+  const CASES = {
+    nova: {
+      num:'Project 01', title:'iNova<br><em>Healthcare</em>', industry:'Healthcare', deliverables:'Full Website',
+      desc:'A cinematic, conversion-focused website for a multi-specialty clinic. Real photography hero, live appointment availability widget, WhatsApp CTA, and a clean service architecture that builds trust and drives bookings.',
+      tags:['Web Design','UI/UX','Healthcare'],
+      sections:[
+  {
+    label:'Brand Cover',
+    type:'single',
+    img:"assets/images/1.jpg"
+  }
+]
+    },
+    uni: {
+      num:'Project 02', title:'UniSpace —<br><em>Smart Library</em> Platform', industry:'Education / Tech', deliverables:'Platform UI, Dashboard',
+      desc:'Real-time library space management — interactive campus map, live occupancy tracking, usability scoring, community reporting, and an admin dashboard.',
+      tags:['Web Design','UI/UX','SaaS'],
+      sections:[
+  {
+    label:'Brand Cover',
+    type:'single',
+    img:"assets/images/2.jpg"
+  }
+]
+    },
+    torch: {
+      num:'Project 03', title:'The Torch —<br><em>Luxury</em> Hospitality', industry:'Hospitality', deliverables:'Full Website',
+      desc:'A visually immersive website for an iconic luxury tower hotel — cinematic hero, suite gallery, amenities showcase, and a premium booking flow.',
+      tags:['Web Design','UI/UX','Luxury'],
+      sections:[
+  {
+    label:'Brand Cover',
+    type:'single',
+    img:"assets/images/3.jpg"
+    }
+    ]
+    },
+    lrp: {
+      num:'Project 04', title:'La Roche-Posay —<br><em>Skincare</em> E-Commerce', industry:'Beauty / Healthcare', deliverables:'Full E-Commerce Site',
+      desc:'Dermatologist-grade skincare e-commerce with clinically proven product positioning, featured serum spotlight, real testimonials, and detailed how-to guides.',
+      tags:['Web Design','E-Commerce','Beauty'],
+      sections:[
+  {
+    label:'Brand Cover',
+    type:'single',
+    img:"assets/images/4.jpg"
+  }
+]
+    },
+    extra: {
+      num:'Project 05', title:'eXtra Store —<br><em>Premium</em> Electronics', industry:'Retail / Electronics', deliverables:'Full E-Commerce Site',
+      desc:'Premium electronics marketplace with festive campaign hero, flash sale countdown timer, category showcase, featured products grid, and bestsellers.',
+      tags:['Web Design','E-Commerce','Retail'],
+      sections:[
+  {
+    label:'Brand Cover',
+    type:'single',
+    img:"assets/images/5.jpg"
+  }
+  ]
+    },
+    paris: {
+      num:'Project 06', title:'Paris<br><em>Swimming Club</em>', industry:'Sports & Leisure', deliverables:'Full Brand System',
+      desc:'Elegant brand identity for a premium sports club — logo system, color palette, typography, brand patterns, swim cap mockup, and member card design.',
+      tags:['Brand Identity','Visual Design','Print'],
+      sections:[
+  {
+    label:'Brand Cover',
+    type:'single',
+    img:"assets/images/6.jpg"
+  }
+]
+    },
+    thai: {
+      num:'Project 07', title:'Thai Kitchen —<br><em>Modern Asian</em> Branding', industry:'Food & Restaurant', deliverables:'Brand, Print, Social, App',
+      desc:'End-to-end restaurant brand — deep red & gold identity, tri-fold menu design, 6 Instagram post templates, and a food delivery app UI mockup.',
+      tags:['Branding','Menu Design','Social Media'],
+      sections:[
+  {
+    label:'Brand Cover',
+    type:'single',
+    img:"assets/images/thai.jpg"
+  }
+]
+    },
+    de: {
+      num:'Project 08', title:'Indusource —<br></em>Industrial Procurement', industry:'Procurement', deliverables:'Full Brand Identity',
+      desc:'Full Brand Identity  -  Industrial Procurement  -  Logo · Social · Guidelines.',
+      tags:['Branding','industry','identity'],
+       sections:[
+  {
+    label:'Brand Cover',
+    type:'single',
+    img:"assets/images/8.jpg"
+     }
+     ]
+    },
+  };
+
+  // ── Render panel ─────────────────────────────────────────────────────────
+  function renderPanel(id) {
+  const d = CASES[id];
+  if (!d) return;
+
+  let sectionsHtml = d.sections.map(s => {
+    let content = '';
+
+    if (s.type === 'browser') {
+
+      content = `
+      <div class="pp-browser">
+        <div class="pp-browser-bar">
+          <div class="pp-dot" style="background:#ff5f57"></div>
+          <div class="pp-dot" style="background:#febc2e"></div>
+          <div class="pp-dot" style="background:#28c840"></div>
+          <div class="pp-url">${s.url}</div>
+        </div>
+
+        <div class="pp-browser-screen">
+          <img src="${s.img}" alt="${s.label}" loading="lazy">
+        </div>
+      </div>`;
+
+    } else if (s.type === '2col') {
+
+      content = `
+      <div class="pp-2col">
+        ${s.imgs.map(i => `
+          <div class="pp-img">
+            <img src="${i}" alt="${s.label}" loading="lazy">
+          </div>
+        `).join('')}
+      </div>`;
+
+    } else {
+
+      content = `
+      <div class="pp-img">
+        <img src="${s.img}" alt="${s.label}" loading="lazy">
+      </div>`;
+    }
+
+    return `
+    <div class="pp-section">
+      <div class="pp-section-label">${s.label}</div>
+      ${content}
+    </div>`;
+  }).join('');
+
+  let tagsHtml = d.tags.map(t => `
+    <span class="pf-chip">${t}</span>
+  `).join('');
+
+  document.getElementById('pf-panel-content').innerHTML = `
+  <div class="pp-num">${d.num}</div>
+
+  <h2 class="pp-title">${d.title}</h2>
+
+  <p class="pp-desc">${d.desc}</p>
+
+  <div class="pp-meta">
+
+    <div class="pp-meta-item">
+      <span class="pp-meta-label">Industry</span>
+      <span class="pp-meta-val">${d.industry}</span>
+    </div>
+
+    <div class="pp-meta-item">
+      <span class="pp-meta-label">Deliverables</span>
+      <span class="pp-meta-val">${d.deliverables}</span>
+    </div>
+
+    <div class="pp-meta-item">
+      <span class="pp-meta-label">Services</span>
+
+      <span class="pp-meta-val"
+        style="display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.1rem">
+
+        ${tagsHtml}
+
+      </span>
+    </div>
+
+  </div>
+
+  ${sectionsHtml}
+
+  <div style="margin-top:2.5rem;text-align:center;">
+
+    <a href="contact.html"
+      class="btn btn-primary"
+      style="display:inline-flex;align-items:center;gap:.6rem;">
+
+      Start a Similar Project
+
+      <svg width="14"
+        height="14"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5">
+
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+
+      </svg>
+
+    </a>
+
+  </div>
+`;
+}
+
+  // ── Open / close ──────────────────────────────────────────────────────────
+  const overlay = document.getElementById('pf-overlay');
+  const panel   = document.getElementById('pf-panel');
+  const closeBtn = document.getElementById('pf-close');
+
+  const scrollWrap = document.getElementById('pf-panel-scroll');
+
+  function openPanel(id) {
+    renderPanel(id);
+    if (scrollWrap) scrollWrap.scrollTop = 0;
+    overlay.classList.add('open');
+    panel.classList.add('open');
+    document.body.classList.add('panel-open');
+    // Block page scroll only — panel scroll must stay free
+    // Store scroll position and use position:fixed trick to prevent body scroll
+    // WITHOUT collapsing body height (which breaks fixed panel scroll)
+    const scrollY = window.scrollY;
+    document.body.style.overflow = 'hidden';
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = '100%';
+    document.body.dataset.scrollY = scrollY;
+  }
+  function closePanel() {
+    overlay.classList.remove('open');
+    panel.classList.remove('open');
+    document.body.classList.remove('panel-open');
+    const scrollY = parseInt(document.body.dataset.scrollY || '0', 10);
+    document.body.style.overflow = '';
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollY);
+  }
+
+  document.querySelectorAll('.pf-card').forEach(card => {
+    card.addEventListener('click', () => openPanel(card.dataset.id));
+  });
+  closeBtn.addEventListener('click', closePanel);
+  overlay.addEventListener('click', closePanel);
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closePanel(); });
+
+  // ── Filter ────────────────────────────────────────────────────────────────
+  document.querySelectorAll('.pf-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.pf-btn').forEach(b=>b.classList.remove('on'));
+      btn.classList.add('on');
+      const f = btn.dataset.f;
+      document.querySelectorAll('.pf-card').forEach(c => {
+        c.style.display = (f==='all'||c.dataset.cat===f) ? '' : 'none';
+      });
+    });
+  });
+
+  // ── Scroll reveal ─────────────────────────────────────────────────────────
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+  }, {threshold:0.1});
+  document.querySelectorAll('.pf-card').forEach(c => io.observe(c));
+
+  // ── Fix 2col base64 separator (semicolon vs colon) ────────────────────────
+  // Already correct in template — no fix needed
+  </script>
 </body>
 </html>
