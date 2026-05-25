@@ -308,11 +308,11 @@
    11. CONTACT FORM — AJAX SUBMISSION
 ══════════════════════════════════════════ */
 (function initContactForm() {
-  const form = document.getElementById('contact-form');
+  const form         = document.getElementById('contact-form');
   if (!form) return;
 
-  const successAlert = form.closest('.contact-form-wrap')?.querySelector('.alert-success');
-  
+  const successAlert = document.querySelector('.alert-success');
+  const errorAlert   = document.querySelector('.alert-error');
   const submitBtn    = form.querySelector('[type="submit"]');
 
   function showAlert(el, message) {
@@ -322,70 +322,44 @@
     setTimeout(() => el.classList.remove('show'), 6000);
   }
 
-  function validateField(input) {
-    const errorEl = input.closest('.form-group')?.querySelector('.field-error');
-    let valid = true;
-    let msg   = '';
-
-    if (input.hasAttribute('required') && !input.value.trim()) {
-      valid = false;
-      msg   = 'This field is required.';
-    } else if (input.type === 'email' && input.value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(input.value)) {
-      valid = false;
-      msg   = 'Please enter a valid email address.';
-    }
-
-    input.classList.toggle('error', !valid);
-    if (errorEl) {
-      errorEl.textContent = msg;
-      errorEl.style.display = valid ? 'none' : 'block';
-    }
-    return valid;
-  }
-
-  // Real-time validation
-  form.querySelectorAll('.form-control, .form-select').forEach(input => {
-    input.addEventListener('blur', () => validateField(input));
-    input.addEventListener('input', () => {
-      if (input.classList.contains('error')) validateField(input);
-    });
-  });
-
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // Validate all
-    let allValid = true;
-    form.querySelectorAll('.form-control, .form-select').forEach(input => {
-      if (!validateField(input)) allValid = false;
-    });
-    if (!allValid) return;
+    const name    = (document.getElementById('name')?.value || '').trim();
+    const email   = (document.getElementById('email')?.value || '').trim();
+    const phone   = (document.getElementById('phone')?.value || '').trim();
+    const service = (document.getElementById('service')?.value || '').trim();
+    const message = (document.getElementById('message')?.value || '').trim();
 
-    // Loading state
+    if (!name || !email || !service || !message) {
+      showAlert(errorAlert, 'Please fill in all required fields.');
+      return;
+    }
+
     const originalHTML = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<span class="spinner"></span> Sending...';
+    submitBtn.innerHTML = 'Sending...';
     submitBtn.disabled  = true;
 
     try {
-      const formData = new FormData(form);
-      const response = await fetch(form.action, {
+      const res  = await fetch('/api/contact', {
         method: 'POST',
-        body: formData,
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, service, message })
       });
-      const data = await response.json();
+      const data = await res.json();
 
       if (data.success) {
-        showAlert(successAlert, data.message);
         form.reset();
+        showAlert(successAlert, 'Your message has been sent successfully!');
       } else {
-        showAlert(errorAlert, data.message || 'Something went wrong. Please try again.');
+        showAlert(errorAlert, 'Something went wrong. Please try again.');
       }
     } catch (err) {
-      showAlert(errorAlert, 'Network error. Please check your connection and try again.');
-    } finally {
-      submitBtn.innerHTML = originalHTML;
-      submitBtn.disabled  = false;
+      showAlert(errorAlert, 'Network error. Please check your connection.');
     }
+
+    submitBtn.innerHTML = originalHTML;
+    submitBtn.disabled  = false;
   });
 })();
 
